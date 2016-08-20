@@ -1,0 +1,31 @@
+Pre installation task:
+--------------------------------------------------------------------------------------------------------------------
+   1.get the system call table address:
+         a. run the following command in the terminal:
+                $cat /boot/System.map-$(uname -r) |grep -e "D loops_per_jiffy" -e "sys_call_table" -e "D boot_cpu_data"
+         b. replace the dummy address that is in the code (fdb.c) with the above address .
+
+   2.inserting parameters hard-coded way
+          a. get the following parameters from the user beforehand.
+                A.maximum threshold value for number of processes allowed.
+                B.time period to determine if the process is relatively young or not.
+                c.maximum threshold value for number of processes allowed in the system.
+
+Installation:
+
+1. inserting kernel module.
+    a. run make file
+        $ make
+    b. inserting module.
+        $sudo insmod fbd.ko
+    
+2. removing module.
+    a. sudo rmmode fbd
+   
+         
+
+
+
+
+
+
